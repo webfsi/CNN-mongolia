@@ -1,0 +1,133 @@
+.v-aspect-ratio-16-19 {
+  overflow: hidden;
+  @supports (aspect-ratio: 16/9) {
+    aspect-ratio: 16/19;
+  }
+
+  @supports not (aspect-ratio: 16/9) {
+    // width: calc((100vh - 130px - 70px) * 16 / 19);
+    max-width: 500px;
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.v-aspect-ratio-20-14 {
+  overflow: hidden;
+  @supports (aspect-ratio: 16/9) {
+    aspect-ratio: 20/14;
+  }
+
+  @supports not (aspect-ratio: 16/9) {
+    // width: calc((100vh - 130px - 70px) * 16 / 19);
+    max-width: 500px;
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.fixed-locomotive {
+  .logo-hub {
+    display: none;
+  }
+  &.menu-opened {
+    .logo-hub {
+      display: block;
+    }
+  }
+  &.vs-b-menu {
+    .logo-hub {
+      display: block;
+    }
+  }
+}
+
+.vs-b-menu {
+  .logo-hub {
+    display: block;
+  }
+}
+
+.b-menu__text span {
+  > div {
+    > div {
+      display: inline !important;
+      // margin-right: -4px;
+      // opacity: 0;
+    }
+  }
+}
+
+.js-body-trs-to-page {
+  .b-menu__content {
+    pointer-events: none;
+    opacity: 0 !important;
+  }
+}
+
+@include tabletMaxi {
+  .menu-opened {
+    .container-hub {
+      z-index: 1000;
+    }
+  }
+}
+
+.touch {
+  .burger-btns {
+    .btn-burger {
+      background: none;
+      span {
+        background-color: #fff;
+      }
+    }
+  }
+  .burger-btns.dark-color .btn-burger span {
+    background-color: #28283c;
+  }
+  &.menu-opened {
+    .burger-btns.dark-color .btn-burger span {
+      background-color: #fff;
+    }
+  }
+}
+
+/* Min width 320 pixels */
+@media only screen and (max-height: 699px) {
+  .container-hub .logo-hub,
+  .hero-logo {
+    top: 70px;
+    top: calc(9.8vh + 20px);
+  }
+  .burger-btns {
+    top: calc(9.8vh + 5px);
+    transition: all 0.4s ease-in-out;
+  }
+  .body-cnn-bar--fixed .container-hub .burger-btns {
+    top: calc(9.8vh - 19px);
+  }
+  .hero-text {
+    margin-top: 29vh;
+  }
+  .body-cnn-bar--fixed.menu-opened .container-hub .logo-hub,
+  .body-cnn-bar--fixed.vs-b-menu .container-hub .logo-hub {
+    top: calc(9.8vh - 3px);
+  }
+}
+/* end media min width 320 pixels */
+
+@media (max-height: 600px) and (min-width: 1024px) {
+  .hero-text {
+    margin: 27vh 0 19vh;
+  }
+}
+
+// video {
+//   // aspect-ratio: 16/9;
+// }

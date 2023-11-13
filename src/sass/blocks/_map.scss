@@ -1,0 +1,642 @@
+$color-white: #ffffff;
+$color-black: #000000;
+$color-dark: #262626;
+$color-grey: #231F20;
+$color-greyer: #666666;
+$color-light-grey: #ededed;
+$color-red: #D11349;
+
+$color-adventure: #F8A328;
+$color-business: #E7434D;
+$color-nature: #149441;
+$color-culture: #0B8BD3;
+
+$mobile-width: 375px;
+$tablet-width: 768px;
+$desktop-width: 1025px;
+
+$mobile: '(max-width: #{$tablet-width - 1px})';
+$mobileAll: '(max-width: #{$desktop-width - 1px} )';
+$minTablet: '(min-width: #{$tablet-width})';
+$minDesktop: '(min-width: #{$desktop-width})';
+#map-wrapper {
+  height: 100vh;
+  // height: var(--vh);
+  width: 100vw;
+  display: block;
+  background: white;
+  z-index: 12;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-transition,
+.map-transition_bg,
+.map-transition_fg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-transition {
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+
+  .section-title {
+    position: absolute;
+    width: 100%;
+    top: 12%;
+    z-index: 5;
+
+    @include portrait {
+      width: 90%;
+      left: 5%;
+    }
+  }
+}
+
+.map-transition_bg {
+  background: url(../img/map-transition/map-bg.jpeg) no-repeat center center / cover;
+  height: 72vw;
+  transform: translate3d(0,-45%,0);
+  top: 50%;
+
+  @include portrait {
+    height: 100%;
+    // transform: translate3d(0,-50%,0);
+  }
+}
+
+.map-transition_fg {
+  background: url(../img/map-transition/map-fg.png) no-repeat center center / cover;
+  opacity: 0;
+  transform: translateY(60px);
+
+  @include tablet {
+    // transform: translateY(0px);
+  }
+}
+
+#map-mongolia {
+  transform: scale(0.95) translateX(0%);
+  opacity: 0;
+
+  @include tabletMaxi {
+    transform: scale(0.87) translateX(0%);
+  }
+}
+
+.map {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: block;
+  
+
+  .hide {
+    display: none !important;
+  }
+
+  .map-holder {
+    width: 100%;
+    @media #{$mobile} {
+      // min-height: 660px;
+    }
+    @media #{$minDesktop} {
+      // min-height: 650px;
+      // height: 80vh;
+    }
+  }
+
+  .marker {
+    width: 0;
+    height: 0;
+  }
+
+  .marker.mapboxgl-marker.mapboxgl-marker-anchor-center:hover,
+  .marker.mapboxgl-marker.mapboxgl-marker-anchor-center.active {
+    z-index: 1;
+  }
+  .marker .pin {
+
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      width: 13px;
+      height: 13px;
+      background: red;
+      transition: transform 0.3s;
+      position: relative;
+      transform: rotate(-45deg);
+      z-index: 2;
+    }
+
+    &[data-category="adventure"]{
+      &:after {
+        background-color: $color-adventure;
+      }
+
+      &:hover:before,
+      &.active:before {
+        background-color: $color-adventure;
+      }
+    }
+
+    &[data-category="business"] {
+      &:after {
+        background-color: $color-business;
+      }
+
+      &:hover:before,
+      &.active:before {
+        background-color: $color-business;
+      }
+    }
+
+    &[data-category="nature"] {
+      &:after {
+        background-color: $color-nature;
+      }
+
+      &:hover:before,
+      &.active:before {
+        background-color: $color-nature;
+      }
+    }
+
+    &[data-category="culture"] {
+      &:after {
+        background-color: $color-culture;
+      }
+
+      &:hover:before,
+      &.active:before {
+        background-color: $color-culture;
+      }
+    }
+
+    &:hover:before,
+    &.active:not(.active-pause):before {
+      content: attr(data-title);
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 3px;
+      color: white;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: 'Elgoc';
+      z-index: 3;
+    }
+
+    &.active[data-marker-id="id-13--1"]:before {
+      bottom: auto !important;
+      top: 20px !important;
+    }
+
+    /*Genghis Khan Statue Complex*/
+    &[data-marker-id="id-19"]:before {
+      bottom: auto !important;
+      top: 20px !important;
+    }
+
+    /*Gorkhi-Terelj National Park*/
+    &[data-marker-id="id-5"]:before {
+      bottom: 20px !important;
+      transform: translateX(-25%) !important;
+    }
+
+    /*Red Rock Wilderness Camp*/
+    &[data-marker-id="id-13--1"]:before {
+      bottom: 20px !important;
+      transform: translateX(-25%) !important;
+    }
+
+    /*Horseback Archery*/
+    &[data-marker-id="id-4"]:before {
+      bottom: auto !important;
+      top: 20px !important;
+    }
+
+    /*Bogd Khan Mountain*/
+    &[data-marker-id="id-7"]:before {
+      bottom: auto !important;
+      top: 20px !important;
+    }
+
+    &.active {
+      width: 18px;
+      height: 18px;
+      z-index: 3;
+    }
+  }
+
+  .marker .image {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 100%;
+    top: 4px;
+    left: 4px;
+    background-position: center center;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0;
+    transition: transform 0.3s;
+  }
+
+  .map-locations-holder {
+    position: absolute;
+    background: #F8F2E8;
+    transform: translateX(100%);
+
+    -ms-scrollbar-width: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .map-locations {
+      overflow-y: auto;
+      @media #{$mobileAll} {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        overflow: initial;
+      }
+    }
+
+    .map-category {
+      @media #{$mobileAll} {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+      }
+    }
+
+    @media #{$mobileAll} {
+      position: absolute;
+      padding-top: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+      bottom: 0px;
+      right: 0;
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: auto;
+      // scroll-behavior: smooth;
+      z-index: 10;
+      height: 345px;
+      display: flex;
+    }
+
+    @media #{$minDesktop} {
+      padding-top: 60px;
+      padding-left: 40px; // don't clip the active location
+      padding-right: 40px;
+      top: 0;
+      bottom: 0px;
+      right: 0px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      // scroll-behavior: smooth;
+      z-index: 10;
+      width: 430px;
+    }
+  }
+
+  .map-location {
+    position: relative;
+    padding: 24px;
+    min-height: 219px;
+    margin-bottom: 12px;
+    transition: transform 0.5s;
+    align-items: flex-start;
+    flex-direction: column;
+    background: white;
+    margin-bottom: 55px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    @media #{$mobileAll} {
+      min-height: 290px;
+      flex-wrap: wrap;
+      width: 300px;
+      height: 310px;
+      flex: 0 0 302px;
+      margin-right: 16px;
+      padding: 14px;
+    }
+
+    &[data-location-id="id-8"], &[data-location-id="id-9"], &[data-location-id="id-11"], &[data-location-id="id-16"], &[data-location-id="id-17"], &[data-location-id="id-19"] {
+      @media #{$mobileAll} {
+        .text {
+          font-size: 12px;
+          line-height: 17px;
+        }
+      }
+    }
+    &[data-location-id="id-12"] {
+      @media #{$mobileAll} {
+        .title {
+          font-size: 13px;
+        }
+        .text {
+          font-size: 12px;
+          line-height: 17px;
+        }
+      }
+    }
+
+    @media #{$minDesktop} {
+      display: flex;
+      width: 100%;
+    }
+
+    cursor: pointer;
+
+    .holder {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      flex-direction: row;
+      padding-right: 25px;
+      align-items: center;
+    }
+
+    .image {
+      overflow: hidden;
+      position: absolute;
+      border-radius: 16px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+        background: lightgray;
+      // @media #{$mobileAll} {
+      width: 100%;
+      // height: 175px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .number {
+      color: #E7434D;
+      transform: rotate(-45deg);
+      height: 28px;
+      width: 28px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      outline: 5px solid white;
+      position: absolute;
+      top: -14px;
+      left: 13px;
+
+      @media #{$mobileAll} {
+        top: 16px;
+        left: 16px;
+        height: 21px;
+        width: 21px;
+        outline: 0;
+      }
+
+      span {
+        color: #F8F2E8;
+        transform: rotate(45deg);
+        font-weight: 700;
+        font-size: 18px;
+        font-family: 'Elgoc';
+      }
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Elgoc';
+      color: #E7434D;
+      letter-spacing: -0.3px;
+      line-height: 25px;
+      margin: 0;
+      margin-bottom: 10px;
+
+      @media #{$mobileAll} {
+        margin-left: 32px;
+        font-size: 16px;
+      }
+    }
+
+    .text {
+      font: 400 14px/21px 'Montserrat';
+      color: #28283C;
+
+      @media #{$mobileAll} {
+        
+        font-size: 13px;
+        line-height: 19px;
+      }
+    }
+
+    img {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+
+  .map-category {
+    &-header {
+      color: #28283C;
+      font-family: "Elgoc";
+      font-weight: bold;
+      border-bottom: 1px solid #28283C;
+      font-size: 26px;
+      line-height: 1;
+      position: relative;
+      padding-left: 50px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+
+
+      @media #{$mobileAll} {
+        padding: 10px;
+        writing-mode: vertical-lr;
+        border: none;
+        &::before {
+          display: none !important;
+        }
+        &::after {
+          display: none !important;
+        }
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 18px;
+        top: 14px;
+        width: 18px;
+        height: 18px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 16px;
+        width: 24px;
+        height: 14px;
+        background: url('../img/map/arrow.svg') no-repeat center;
+        transform: rotate(180deg);
+      }
+    }
+
+    &-content {
+      display: none;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      @media #{$mobileAll} {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        padding: 0;
+      }
+    }
+    &.open {
+      .map-category-content {
+        display: block;
+        @media #{$mobileAll} {
+          display: flex;
+        }
+      }
+      .map-category-header:after {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+
+  .m {
+    &-hide {
+      @media #{$minDesktop} {
+        display: none;
+      }
+    }
+    &-show {
+      @media #{$mobileAll} {
+        display: block;
+      }
+    }
+  }
+  .d {
+    &-hide {
+      @media #{$mobileAll} {
+        display: none;
+      }
+    }
+    &-show {
+      @media #{$minDesktop} {
+        display: hide;
+      }
+    }
+  }
+
+}
+
+
+
+.map-category {
+    &[data-category="adventure"]{
+      .title {
+          color: $color-adventure;
+      }
+      .number, .map-category-header:before { 
+        background-color: $color-adventure;
+      }
+      .map-category-header {
+        @media #{$mobileAll} {
+          color: $color-adventure;
+        }
+      }
+    }
+
+    &[data-category="business"] {
+      .title {
+        color: $color-business;
+      }
+      .number, .map-category-header:before { 
+        background-color: $color-business;
+      }
+      .map-category-header {
+        @media #{$mobileAll} {
+          color: $color-business;
+        }
+      }
+    }
+
+    &[data-category="nature"] {
+      .title {
+        color: $color-nature;
+      }
+      .number, .map-category-header:before { 
+        background-color: $color-nature;
+      }
+      .map-category-header {
+        @media #{$mobileAll} {
+          color: $color-nature;
+        }
+      }
+    }
+
+    &[data-category="culture"] {
+      .title {
+        color: $color-culture;
+      }
+      .number, .map-category-header:before { 
+        background-color: $color-culture;
+      }
+      .map-category-header {
+        @media #{$mobileAll} {
+          color: $color-culture;
+        }
+      }
+    }
+
+    .mapboxgl-ctrl-top-right {
+      top: 30px;
+    }
+
+}
+@media #{$mobileAll} {
+  .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    margin: 70px 10px 0 0;
+  }
+
+  .mapboxgl-scroll-zoom-blocker, .mapboxgl-touch-pan-blocker {
+    padding-bottom: 300px;
+  }
+}

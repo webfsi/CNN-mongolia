@@ -1,0 +1,46 @@
+html.has-scroll-smooth,
+html.has-scroll-smooth body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.user-visited {
+  [data-enter-page-first] .hub_two {
+    display: none !important;
+  }
+}
+
+html,
+body {
+  font-family: $font1;
+  font-weight: 400;
+  color: $c-black;
+}
+
+main {
+  width: 100%;
+}
+
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+a,
+.is-cursor,
+[type*='submit'] {
+  cursor: pointer;
+}
+
+main section {
+  position: relative;
+}

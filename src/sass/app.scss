@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Basic styles
+@import 'reset';
+@import 'common/fonts';
+@import 'vars';
+@import 'mixins/general';
+@import 'mixins/media';
+@import 'generated/**/*';
+
+// Animations styles
+@import 'common/animations';
+
+// Libs
+@import '../../node_modules/swiper/swiper';
+
+// Common styles
+@import 'common/default';
+@import 'common/typo';
+@import 'common/layout';
+@import 'common/forms';
+@import 'common/btn';
+@import 'common/states';
+@import 'common/general';
+
+// Styles for JS-helpers
+@import 'helpers/accordeon';
+@import 'helpers/tabs';
+@import 'helpers/custom-select';
+
+// Blocks styles
+@import 'blocks/header';
+@import 'blocks/footer';
+@import 'blocks/next-page';
+@import 'blocks/hub1';
+@import 'blocks/burger';
+
+// Home Page styles
+// @import 'pages/home/hero';
+@import 'blocks/hero';
+@import 'blocks/map';
+@import 'blocks/fixed';

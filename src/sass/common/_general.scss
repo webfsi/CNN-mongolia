@@ -1,0 +1,261 @@
+.width-container {
+  max-width: 1220px;
+  padding: 0 35px;
+  margin: 0 auto;
+  @include mobile {
+    padding: 0 15px;
+  }
+}
+.content-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 20px;
+
+  @include tablet {
+    display: block;
+  }
+}
+body {
+  color: #28283c;
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: 'Montserrat';
+  background-color: #fff;
+
+  @include mobile {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+.bg-size-full {
+  background-size: 100% auto;
+}
+.media-ellipse {
+  .content-wrapper {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 274px;
+      height: 274px;
+      top: 0;
+    }
+    &:before {
+      background: url('../img/ellipse.svg') no-repeat center center / contain;
+      left: -200px;
+    }
+    &:after {
+      background: url('../img/ellipse2.svg') no-repeat center center / contain;
+      right: -200px;
+    }
+    @include miniLaptop {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    @include tabletMaxi {
+      max-width: none;
+      &:before {
+        left: -110px;
+      }
+      &:after {
+        right: -110px;
+      }
+    }
+
+    @include tablet {
+      &:before {
+        left: -10vw;
+        height: 100%;
+        width: 170px;
+      }
+      &:after {
+        right: -10vw;
+        height: 100%;
+        width: 170px;
+      }
+    }
+
+    @include mobile {
+      &:before {
+        left: -30px;
+        width: 83px;
+      }
+      &:after {
+        right: -30px;
+        width: 83px;
+      }
+    }
+  }
+  &_second {
+    .content-wrapper {
+      &:before {
+        background-image: url(../img/art2/ellipse2-1.svg);
+      }
+      &:after {
+        background-image: url(../img/art2/ellipse2-2.svg);
+      }
+    }
+  }
+}
+h1,
+h2 {
+  font-family: 'Elgoc';
+}
+blockquote {
+  &.-small {
+    p {
+      @include mobile {
+        font-size: 24px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &.-xl {
+    > span {
+      font-size: 120px;
+      height: 45px;
+    }
+
+    p {
+      font-size: 40px;
+      line-height: 1.1;
+
+      @include mobile {
+        font-size: 30px;
+      }
+    }
+  }
+  > span {
+    font-size: 90px;
+    height: 35px;
+    font-family: 'Elgoc';
+    line-height: 1;
+
+    // &.text-xl {
+    //   font-size: 120px;
+    // }
+  }
+
+  p {
+    font-family: 'Elgoc';
+    font-size: 30px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 15px;
+
+    @include mobile {
+      font-size: 30px;
+    }
+
+    // &.text-xl {
+    //   font-size: 40px;
+    //   line-height: 44px;
+    // }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+figcaption {
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-weight: 500;
+  @include mobile {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  p {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 600;
+    margin: 0;
+    @include mobile {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  > span {
+    font-size: 13px;
+    display: block;
+    font-weight: 400;
+    @include mobile {
+      font-size: 12px;
+      line-height: 12px;
+      margin-top: 8px;
+    }
+  }
+}
+.text-block {
+  > * {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  p a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.media-block {
+  &__media {
+    grid-column: span 5 / span 5;
+  }
+  &__text {
+    grid-column: span 6 / span 6;
+    grid-column-start: 7;
+    > * {
+      margin-bottom: 40px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.section-title {
+  font-family: 'Elgoc';
+  font-size: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: 600;
+
+  @include mobile {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+}
+.poster {
+  width: 100%;
+  min-height: 650px;
+  height: 100vh;
+  &_mob-auto {
+    @include mobile {
+      height: auto;
+      min-height: 0;
+    }
+  }
+}
+
+[data-split] {
+  display: block !important;
+}
+
+.splitted-line-inner {
+  overflow: hidden;
+}
+.bg-bl {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

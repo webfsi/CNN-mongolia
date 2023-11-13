@@ -1,0 +1,19 @@
+<div class="container-hub">
+  <div class="logo-hub">
+    <a href="./" data-link-src>
+      <img src="{{ url.step1 }}img/logo.png" alt="image">
+    </a>
+  </div>
+
+  <div class="burger-btns">
+    <button class="btn-burger" data-click-burger-btn>
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="container-hub__list" data-hub-list>
+    {% include '../pages/hub/_hub1.twig' %}
+    {% include '../pages/hub/_hub2.twig' %}
+    {% include './_burger.twig' %}
+  </div>
+</div>
