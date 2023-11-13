@@ -1,0 +1,49 @@
+
+<div class="container-hub">
+
+  <div class="logo-hub">
+    <a href="/mongolia/" data-link-src>
+      <img src="{{ url.step1 }}img/logo.png" alt="image">
+    </a>
+  </div>
+
+  <div class="burger-btns">
+    <button class="btn-burger" data-click-burger-btn>
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="container-hub__list" data-enter-page-first>
+    <div class="hub hub_two is-active is-current">
+      <div class="hub__wrp">
+        <div class="hub__video bg-bl"
+          style="background-image: url({{ url.step1 }}img/img-user-visited-not.jpg);">
+          <video class="hero-video full-screen" autoplay muted playsinline>
+            <source
+              src="https://player.vimeo.com/progressive_redirect/playback/873949025/rendition/720p/file.mp4?loc=external&signature=d9c25bebe3c81e42e93f349b6a281820ec65c47599d10fc9bb4133d786d70faf"
+              type="video/mp4">
+          </video>
+        </div>
+        <div class="hub__content">
+          <div class="hub__btn-left">
+            <button class="btn-border" data-video-skip>
+              Skip intro
+            </button>
+          </div>
+          <div class="hub__btn-right">
+            <div class="play-btn btn-sound btn-play_sm" data-video-sound>
+              <span class="btn-sound__icon-on">
+                {{ inline('ic-sound-on') }}
+              </span>
+              <span class="btn-sound__icon-off">
+                {{ inline('ic-sound-off') }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include './_burger.twig' %}
+
+  </div>
+</div>

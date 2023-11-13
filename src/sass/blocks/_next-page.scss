@@ -1,0 +1,121 @@
+.bg-turbine2 {
+  background-image: url(../img/art2/bg-next-page2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include mobile {
+    background-image: url(../img/art2/bg-next-page2-mob.png);
+  }
+}
+
+.banner-st {
+  border-radius: 24px;
+  background-color: #ccc;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  overflow: hidden;
+  cursor: none;
+  box-shadow: 0px 4px 128px 0px rgba(21, 24, 48, 0.3);
+}
+
+.banner-st {
+  .text-top {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: $font3;
+    position: absolute;
+    top: 0;
+    margin-top: 60px;
+    left: 35px;
+    right: 35px;
+    @include mobile {
+      font-size: 12px;
+      margin-top: 45px;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    font-family: $font2;
+    font-size: 50px;
+    font-weight: 700;
+    > span {
+      font-size: 100px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      display: block;
+    }
+
+    @include tablet {
+      // font-size: 30px;
+      font-size: 40px;
+      > span {
+        font-size: 80px;
+      }
+    }
+    @include mobile {
+      font-size: 30px;
+      line-height: 1.1;
+      > span {
+        font-size: 37px;
+        letter-spacing: 0;
+      }
+    }
+  }
+}
+
+.banner-st {
+  .btn-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transform: translate(-50%, -50%);
+    @include mobile {
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      transform: translate(-50%, -200%);
+      img,
+      svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        @include mobile {
+          object-position: center bottom;
+        }
+      }
+    }
+  }
+  &:not(.is-moving) {
+    .btn-cursor__fake-bl {
+      position: relative;
+    }
+    .btn-cursor {
+      // transform: none !important;
+      transform: translate(0, 0) !important;
+      opacity: 1;
+      @include mobile {
+        transform: translate(0, 170%) !important;
+      }
+    }
+  }
+  &.is-moving {
+    .btn-cursor {
+      position: absolute;
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<section class="hero hero_second" data-video-load>
+	<a href class="hero-logo"><img src="{{ url.step1 }}img/logo.png" alt></a>
+
+	<div class="hero-wrap full-screen" data-video-click>
+		<div class="hero-bg full-screen">
+			<div class="hero-bg-inner shadow-videos full-screen"
+				style="background-image: url({{ url.step1 }}img/art2/first-img-video.jpg)">
+				<video class="hero-video full-screen is-play-video" autoplay muted loop
+					playisline
+					playsinlineposter="your-poster-image.jpg" data-video-click-stop>
+					<source
+						src="https://player.vimeo.com/progressive_redirect/playback/873949158/rendition/720p/file.mp4?loc=external&signature=c183f55f3d02c04e73ff1a9ce1275bf45d22bd6148730dd56d9f12a4cdb2d9c4"
+						type="video/mp4">
+				</video>
+				<video class="hero-video full-screen is-paused-video" autoplay muted
+					controls loop
+					playisline
+					playsinlineposter="your-poster-image.jpg" data-video-click-play>
+					<source
+						data-src="https://player.vimeo.com/progressive_redirect/playback/873949131/rendition/720p/file.mp4?loc=external&signature=4e6fa751340ecdd600820d0a84435141fc3e47b50da6b186578ae09daaa7f76d"
+						type="video/mp4">
+				</video>
+			</div>
+			<div class="hero-pattern"
+				style="background-image: url({{ url.step1 }}img/pattern-hero2.svg);"></div>
+		</div>
+		<div class="hero-text">
+			<div class="hero-subtitle">Meet MONGOLIA:</div>
+			<h1>
+				<span>Life on the Move</span>
+			</h1>
+			<p>Preserving Mongolian identity through art and culture in the modern age.</p>
+
+			<button
+				class="play-btn w-[110px] h-[110px] xs:w-[66px] xs:h-[66px] rounded-full text-yellow mt-40 xs:mt-70 relative"
+				aria-label="play button" data-magnetic data-video-click-playbtn2>
+				<svg xmlns="http://www.w3.org/2000/svg" width="110" height="110"
+					viewBox="0 0 110 110" fill="none">
+					<circle cx="55" cy="55" r="55" fill="currentColor" />
+					<circle opacity="0.2" cx="55" cy="55" r="55" fill="currentColor" />
+					<path d="M50.1113 66.0001V42.7778L66.0002 53.7778L50.1113 66.0001Z"
+						stroke="#D22832" stroke-width="3" stroke-linejoin="round" />
+				</svg>
+			</button>
+		</div>
+		<div class="hero-fg full-screen">
+			<!-- <div class="hero-fg-inner full-screen"></div> -->
+		</div>
+	</div>
+
+	<button class="hero-button">
+		{# <div class="overflow-hidden"> #}
+			<div class="hero-button_text">
+				<span>Scroll to read</span>
+				<span>Scroll to read</span>
+			</div>
+			{# </div> #}
+	</button>
+</section>

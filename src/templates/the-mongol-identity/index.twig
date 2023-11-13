@@ -1,0 +1,24 @@
+---
+title: Mongolia’s Greatest Resource – Rio Tinto – CNN2
+description: Article Page description
+pageName: articlePage
+---
+
+{% set url = {
+step1: '../',
+step2: '../',
+step3: '/',
+step4: ''
+} %}
+{% extends 'layouts/_page-default.twig' %}
+{% block content %}
+{% set basePath = "../" %}
+{% include 'blocks/_hub-inner.twig' %}
+<main data-scroll-container data-url>
+	{% include 'pages/a2.the-mongol-identity/_a2-body.twig' %}
+	{% set link_next_page = "../untapped-potential/" %}
+	{% include 'blocks/_next-page.twig' %}
+	{% include 'blocks/_mongolia-banner.twig' %}
+	{% include 'blocks/_footer.twig' %}
+</main>
+{% endblock %}

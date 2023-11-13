@@ -1,0 +1,98 @@
+// Input styling
+#{$input-txt} {
+	// styles
+
+	&[disabled] {
+		// styles
+		opacity: 1; // fix for safari
+	}
+}
+
+textarea {
+	overflow: auto;
+	resize: none;
+}
+
+// Checkbox and Radio styling
+
+.checkbox,
+.radio {
+	position: relative;
+
+	input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+
+	label {
+		cursor: pointer;
+
+		&::before {
+			content: "";
+			// styles for Box
+		}
+
+		&::after {
+			content: "";
+			// styles for Check in unchecked state
+		}
+	}
+
+	input:checked + label {
+
+		&::after {
+			// styles for Check in checked state
+		}
+	}
+}
+
+// Range input styling
+@mixin rangeThumb {
+	// thumb's styles
+	cursor: pointer;
+}
+
+@mixin rangeTrack {
+	// track's styles
+}
+
+.range-input {
+	-webkit-appearance: none;
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		margin-top: -7px;
+
+		@include rangeThumb;
+	}
+
+	&::-moz-range-thumb {
+		@include rangeThumb;
+	}
+
+	&::-ms-thumb {
+		@include rangeThumb;
+
+		margin-top: 0;
+	}
+
+	&::-webkit-slider-runnable-track {
+		@include rangeTrack;
+	}
+
+	&::-moz-range-track {
+		@include rangeTrack;
+	}
+
+	&::-ms-track {
+		width: 100%;
+		color: transparent;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+
+		@include rangeTrack;
+	}
+}

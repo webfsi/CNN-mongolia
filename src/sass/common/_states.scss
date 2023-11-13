@@ -1,0 +1,61 @@
+.is-hidden {
+	display: none !important;
+}
+
+.is-invisible {
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
+.is-mob-hidden {
+	@include mobile {
+		display: none;
+	}
+}
+
+.is-dsk-hidden {
+	display: none;
+	@include tabletMaxi {
+		display: block;
+	}
+}
+
+.is-tbl-hidden {
+	display: none;
+	@include tabletMaxi {
+		display: block;
+	}
+	@include mobile {
+		display: none;
+	}
+}
+
+.is-cover {
+	img, video, iframe {
+		width: 100%;
+		height: 100%;
+		display: block;
+		object-fit: cover;
+	}
+	picture {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}
+
+.pages-list-nav {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	line-height: 40px;
+	text-transform: uppercase;
+	font-weight: 500;
+	a {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

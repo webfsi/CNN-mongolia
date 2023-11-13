@@ -1,0 +1,25 @@
+---
+title: Mongolia’s Greatest Resource – Rio Tinto – CNN
+description: Home Page description
+pageName: homePage
+---
+
+{% set url = {
+step1: '../',
+step2: '../',
+step3: '/',
+step4: ''
+} %}
+{% extends 'layouts/_page-default.twig' %}
+{% block content %}
+{% set basePath = "../" %}
+{% include 'blocks/_hub-inner.twig' %}
+<main data-scroll-container data-url>
+	{% include 'pages/home/_hero.twig' %}
+	{% set link_next_page = "../the-mongol-identity/" %}
+	{% include 'pages/home/_next-page.twig' %}
+
+	{% include 'blocks/_mongolia-banner.twig' %}
+	{% include 'blocks/_footer.twig' %}
+</main>
+{% endblock %}
