@@ -37,28 +37,6 @@
     </script>
   </head>
   <body data-page-name="homePage">
-    <script>
-      function handleFirstVisit()
-      {
-        const hasVisited = localStorage.getItem('visited');
-        if (hasVisited)
-        {
-          document.body.classList.add('user-visited');
-          const hiidenBlockFind = document.querySelector('[data-enter-page-first]');
-          if (hiidenBlockFind)
-          {
-            const hiddenBlock = hiidenBlockFind.querySelector('.hub_two');
-            hiddenBlock.style.display = 'none';
-          }
-        }
-        else
-        {
-          localStorage.setItem('visited', 'true');
-        }
-      }
-      handleFirstVisit();
-
-    </script>
     <header class="header cnn-bar" id="cnn-bar">
       <div class="cnn-bar__row cnn-bar__row--black">
         <a class="cnn-bar__back-link" href="https://edition.cnn.com">Back to CNN</a>
@@ -117,7 +95,7 @@
     <div class="container-hub">
       <div class="logo-hub">
         <a href="/mongolia/" data-link-src>
-          <img src="img/logo.png" alt="image">
+          <img class="w-[146px]" src="img/logo-big.png" alt="image">
         </a>
       </div>
       <div class="burger-btns">
@@ -126,10 +104,10 @@
         </button>
       </div>
       <div class="container-hub__list" data-enter-page-first>
-        <div class="hub hub_two is-active is-current">
+        <div class="hub hub_two is-hidden">
           <div class="hub__wrp">
             <div class="hub__video bg-bl" style="background-image: url(img/img-user-visited-not.jpg);">
-              <video class="hero-video full-screen" autoplay muted playsinline>
+              <video class="hero-video full-screen" muted playsinline>
                 <source src="https://player.vimeo.com/progressive_redirect/playback/873949025/rendition/720p/file.mp4?loc=external&signature=d9c25bebe3c81e42e93f349b6a281820ec65c47599d10fc9bb4133d786d70faf" type="video/mp4">
               </video>
             </div>
@@ -176,20 +154,20 @@
               </div>
               <div class="b-menu__text t-menu">
                 <span>Explore the untapped potential for</span>
-                <a class="t-menu__one" data-cursor-moving data-menu-hover-btn data-link-src="one" href="../untapped-potential/">
+                <a class="t-menu__one js-hover" data-cursor-moving data-menu-hover-btn data-link-src="one" href="../untapped-potential/">
                   <span>Adventure</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
                   </div>
                 </a><span>, a dynamic</span>
-                <a href="../the-mongol-identity/" class="t-menu__two" data-cursor-moving data-menu-hover-btn data-link-src="two">
+                <a href="../the-mongol-identity/" class="t-menu__two js-hover" data-cursor-moving data-menu-hover-btn data-link-src="two">
                   <span>Business</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
                   </div>
                 </a>
                 <span>landscape, and the</span>
-                <a href="../the-mongol-identity/" class="t-menu__three" data-cursor-moving data-menu-hover-btn data-link-src="three">
+                <a href="../the-mongol-identity/" class="t-menu__three js-hover" data-cursor-moving data-menu-hover-btn data-link-src="three">
                   <span>Culture</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
@@ -205,7 +183,7 @@
     <main data-scroll-container data-url>
       <div class="bg-red">
         <section class="hero" data-video-load>
-          <a href="/" data-link-src class="hero-logo"><img src="img/logo.png" alt></a>
+          <a href="/" data-link-src class="hero-logo"><img class="w-[146px]" src="img/logo-big.png" alt></a>
           <div class="hero-wrap full-screen">
             <div class="hero-bg full-screen">
               <div class="hero-bg-inner full-screen" style="background-image: url(img/hero-bg-big.jpg);">
@@ -693,22 +671,30 @@
           </div>
         </a>
       </div>
-      <section class="flex h-[650px] relative xs:flex-col xs:h-auto">
+      <section class="flex h-[650px] tb:h-[550px] relative xs:flex-col xs:h-auto">
         <div class="xs:h-[300px] xs:w-full w-1/2 bg-blue text-white h-full bg-[url('../img/vector.png')] bg-size-full bg-bottom bg-no-repeat relative">
-          <img src="img/logo.png" class="absolute top-10 right-8 w-[185px] xs:w-[110px] xs:top-[30px] xs:right-[20px]">
+          <div class="text-center h-full max-w-[720px] ml-auto flex justify-center items-center">
+            <div class="px-20 py-40 max-w-[540px] mx-auto">
+              <img src="img/logo-big.png" class="mb-[75px] xs:max-w-[146px] max-w-[185px] xs:mb-[36px]">
+              <div class="mb-[120px] tb:mb-[50px]">
+                <h2 class="text-[80px] tb:text-[58px] xs:text-[32px] m-0 font-bold leading-[0.9] text-orange">It's Time to Go Mongolia</h2>
+                <a href="#" class="btn-round btn btn--orange mt-[40px] xs:mt-[20px] flex items-center mx-auto">
+                  <div class="btn-round_circle w-20 h-20 flex items-center justify-center bg-orange rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewbox="0 0 14 15" fill="none">
+                      <path d="M5.41254 14.25V0.75H8.62254V14.25H5.41254ZM0.102539 9V6H13.9325V9H0.102539Z" fill="#214599" />
+                    </svg>
+                  </div>
+                  <span class="btn-round_text block text-orange ms-4 text-lg"> Start your Adventure </span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="xs:h-[300px] xs:order-first xs:w-full w-1/2 h-full bg-[url('../img/field.jpg')] bg-cover bg-no-repeat "></div>
-        <div class="width-container absolute w-full left-1/2 top-1/2 xs:top-[445px] translate-x-[-50%] translate-y-[-50%] text-orange xl:max-w-[90%] tb:max-w-[97%] xs:max-w-[100%]">
-          <h2 class="text-[62px] xs:text-[48px] m-0">Go Mongolia </h2>
-          <a href="#" class="btn-round btn btn--orange mt-[50px] flex items-center">
-            <div class="btn-round_circle w-20 h-20 flex items-center justify-center bg-orange rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewbox="0 0 14 15" fill="none">
-                <path d="M5.41254 14.25V0.75H8.62254V14.25H5.41254ZM0.102539 9V6H13.9325V9H0.102539Z" fill="#214599" />
-              </svg>
-            </div>
-            <span class="btn-round_text block ms-4 text-lg"> Start your Adventure </span>
-          </a>
-        </div>
+        <!-- <div
+		class="width-container absolute w-full left-1/2 top-1/2 xs:top-[445px] translate-x-[-50%] translate-y-[-50%] text-orange xl:max-w-[90%] tb:max-w-[97%] xs:max-w-[100%]">
+
+	</div> -->
       </section>
       <footer class="footer">
         <div class="footer-container">

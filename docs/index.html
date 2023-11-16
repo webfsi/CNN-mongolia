@@ -37,28 +37,6 @@
     </script>
   </head>
   <body data-page-name="">
-    <script>
-      function handleFirstVisit()
-      {
-        const hasVisited = localStorage.getItem('visited');
-        if (hasVisited)
-        {
-          document.body.classList.add('user-visited');
-          const hiidenBlockFind = document.querySelector('[data-enter-page-first]');
-          if (hiidenBlockFind)
-          {
-            const hiddenBlock = hiidenBlockFind.querySelector('.hub_two');
-            hiddenBlock.style.display = 'none';
-          }
-        }
-        else
-        {
-          localStorage.setItem('visited', 'true');
-        }
-      }
-      handleFirstVisit();
-
-    </script>
     <header class="header cnn-bar" id="cnn-bar">
       <div class="cnn-bar__row cnn-bar__row--black">
         <a class="cnn-bar__back-link" href="https://edition.cnn.com">Back to CNN</a>
@@ -138,7 +116,7 @@
               <h1>Meet <span>Mongolia</span>
               </h1>
               <div class="hub__text">
-                <p>This interactive site is best experienced with sound.</p>
+                <p>This site is best experienced with sound.</p>
               </div>
               <div class="hub__text-sm">
                 <p>(Video will begin in <b data-video-time>5</b>)</p>
@@ -206,20 +184,20 @@
               </div>
               <div class="b-menu__text t-menu">
                 <span>Explore the untapped potential for</span>
-                <a class="t-menu__one" data-cursor-moving data-menu-hover-btn data-link-src="one" href="untapped-potential">
+                <a class="t-menu__one js-hover" data-cursor-moving data-menu-hover-btn data-link-src="one" href="untapped-potential">
                   <span>Adventure</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
                   </div>
                 </a><span>, a dynamic</span>
-                <a href="the-mongol-identity" class="t-menu__two" data-cursor-moving data-menu-hover-btn data-link-src="two">
+                <a href="the-mongol-identity" class="t-menu__two js-hover" data-cursor-moving data-menu-hover-btn data-link-src="two">
                   <span>Business</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
                   </div>
                 </a>
                 <span>landscape, and the</span>
-                <a href="the-mongol-identity" class="t-menu__three" data-cursor-moving data-menu-hover-btn data-link-src="three">
+                <a href="the-mongol-identity" class="t-menu__three js-hover" data-cursor-moving data-menu-hover-btn data-link-src="three">
                   <span>Culture</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
