@@ -62,7 +62,7 @@
           </svg>
         </a>
         <div class="cnn-bar__content-by">
-          <a href="" target="_blank">Content by <strong>Rio Tinto</strong> </a>
+          <a href="https://www.riotinto.com/en" target="_blank">Content by <strong>Rio Tinto</strong> </a>
         </div>
         <div class="cnn-bar__share" data-share>
           <a class="cnn-bar__share-toggle" data-share-toggle> Share </a>
@@ -94,8 +94,8 @@
     </header>
     <div class="container-hub">
       <div class="logo-hub">
-        <a href="./" data-link-src>
-          <img src="img/logo.png" alt="image">
+        <a href="/" target="_blank">
+          <img src="img/logo-big.png" alt="image">
         </a>
       </div>
       <div class="burger-btns">
@@ -115,7 +115,7 @@
             <div class="hub__content">
               <h1>Meet <span>Mongolia</span>
               </h1>
-              <div class="hub__text">
+              <div class="hub__text xs:max-w-[240px]">
                 <p>This site is best experienced with sound.</p>
               </div>
               <div class="hub__text-sm">
@@ -137,9 +137,27 @@
         <div class="hub hub_two">
           <div class="hub__wrp">
             <div class="hub__video">
-              <video class="hero-video full-screen" muted playsinline>
-                <source src="https://player.vimeo.com/progressive_redirect/playback/873949025/rendition/720p/file.mp4?loc=external&signature=d9c25bebe3c81e42e93f349b6a281820ec65c47599d10fc9bb4133d786d70faf" type="video/mp4">
+              <video class="hero-video full-screen" muted playsinline data-change-dev-src>
+                <source data-src-desk="https://player.vimeo.com/progressive_redirect/playback/873949025/rendition/720p/file.mp4?loc=external&signature=d9c25bebe3c81e42e93f349b6a281820ec65c47599d10fc9bb4133d786d70faf" data-src-mob="https://player.vimeo.com/progressive_redirect/playback/878199872/rendition/360p/file.mp4?loc=external&signature=e676252279072f6091885744910aa4741a1f2c029d61e27e3a9c36f3cdd9fb07" type="video/mp4">
               </video>
+              <script>
+                document.addEventListener("DOMContentLoaded", function()
+                {
+                  var videoSource = document.querySelector('[data-change-dev-src] source');
+                  var srcDesk = videoSource.getAttribute('data-src-desk');
+                  var srcMob = videoSource.getAttribute('data-src-mob');
+                  if (window.matchMedia("(max-width: 699px)").matches)
+                  {
+                    videoSource.src = srcMob;
+                  }
+                  else
+                  {
+                    videoSource.src = srcDesk;
+                  }
+                  videoSource.parentElement.load();
+                });
+
+              </script>
             </div>
             <div class="hub__content">
               <div class="hub__btn-left">
@@ -184,13 +202,13 @@
               </div>
               <div class="b-menu__text t-menu">
                 <span>Explore the untapped potential for</span>
-                <a class="t-menu__one js-hover" data-cursor-moving data-menu-hover-btn data-link-src="one" href="untapped-potential">
+                <a class="t-menu__one js-hover" data-cursor-moving data-menu-hover-btn data-link-src="one" href="the-mongol-identity">
                   <span>Adventure</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
                   </div>
                 </a><span>, a dynamic</span>
-                <a href="the-mongol-identity" class="t-menu__two js-hover" data-cursor-moving data-menu-hover-btn data-link-src="two">
+                <a href="untapped-potential" class="t-menu__two js-hover" data-cursor-moving data-menu-hover-btn data-link-src="two">
                   <span>Business</span>
                   <div class="t-menu__cursor" data-cursor-moving-btn>
                     <img src="img/ic-arrow-circle-right.png" alt="image">
